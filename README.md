@@ -1,10 +1,10 @@
 # Automotive Indicator Control ECU Demo
 
-This project demonstrates a basic automotive indicator control ECU using Arduino Uno, modular embedded C/C++ firmware, button input handling, LED output control, scheduler logic, PWM, and UART debug logging.
+This project demonstrates a basic automotive indicator control ECU using Arduino Uno, embedded C/C++, GPIO input handling, LED output control, scheduler-style timing logic, and UART debug logging.
 
 ## Project Objective
 
-The objective of this project is to demonstrate embedded systems, automotive ECU logic, modular firmware structure, and basic validation workflow using an Arduino-based indicator control system.
+The objective of this project is to demonstrate embedded systems, automotive ECU logic, basic validation workflow, and GitHub-based technical documentation.
 
 ## Tools Used
 
@@ -12,10 +12,10 @@ The objective of this project is to demonstrate embedded systems, automotive ECU
 - Embedded C/C++
 - Arduino IDE
 - GPIO
-- PWM
 - UART Serial Monitor
-- Basic scheduler logic
-- GitHub documentation
+- millis()-based timing logic
+- Git
+- GitHub
 
 ## Features
 
@@ -24,28 +24,37 @@ The objective of this project is to demonstrate embedded systems, automotive ECU
 - Hazard light mode
 - Button input handling
 - LED blinking logic
-- PWM-based brightness control
 - UART debug logging
-- Modular firmware structure
 - Basic validation test cases
+- Structured GitHub documentation
+
+## Hardware Inputs and Outputs
+
+| Component | Arduino Pin | Purpose |
+|---|---|---|
+| Left Button | D2 | Activates left indicator |
+| Right Button | D3 | Activates right indicator |
+| Hazard Button | D4 | Activates hazard mode |
+| Left LED | D8 | Left indicator output |
+| Right LED | D9 | Right indicator output |
 
 ## Software Architecture
 
-The project is structured into two main layers:
+The project is divided into:
 
-### Application Software
+### Application Logic
 
-- Indicator control logic
-- Hazard mode handling
-- State machine behavior
+- Left indicator state
+- Right indicator state
+- Hazard mode state
+- Indicator off condition
 
-### Basic Software
+### Basic Software Logic
 
-- GPIO module
-- Button input module
-- PWM output module
-- UART logging module
-- Scheduler module
+- GPIO input reading
+- LED output control
+- Timing control using millis()
+- UART serial logging
 
 ## Project Structure
 
@@ -54,21 +63,12 @@ gray-indicator-control-ecu
 │
 ├── firmware
 │   └── arduino_uno
-│       ├── indicator_ecu_uno.ino
-│       ├── bsw
-│       │   ├── gpio.*
-│       │   ├── button.*
-│       │   ├── pwm.*
-│       │   ├── uart.*
-│       │   └── scheduler.*
-│       └── asw_gen
-│           └── Simulink generated files
+│       └── indicator_ecu_uno.ino
 │
 ├── docs
 │   ├── system_architecture.md
-│   ├── test_cases.md
-│   └── project_report.pdf
+│   └── test_cases.md
 │
-└── media
-    ├── demo_video_link.txt
-    └── wiring_photos
+├── media
+│
+└── README.md
