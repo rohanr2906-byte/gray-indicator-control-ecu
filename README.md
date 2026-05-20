@@ -27,7 +27,7 @@ The objective of this project is to demonstrate embedded systems, automotive ECU
 - UART debug logging
 - Basic validation test cases
 - Structured GitHub documentation
-- Wiring documentation for hardware connections
+- Wiring simulation documentation
 
 ## Hardware Inputs and Outputs
 
@@ -38,6 +38,25 @@ The objective of this project is to demonstrate embedded systems, automotive ECU
 | Hazard Button | D4 | Activates hazard mode |
 | Left LED | D8 | Left indicator output |
 | Right LED | D9 | Right indicator output |
+
+## Wiring Simulation
+
+The circuit was created using an Arduino Uno simulation setup.
+
+![Automotive Indicator Control ECU Wiring Simulation](media/wiring_simulation.png)
+
+### Pin Mapping
+
+| Component | Arduino Pin |
+|---|---|
+| Left Button | D2 |
+| Right Button | D3 |
+| Hazard Button | D4 |
+| Left LED | D8 |
+| Right LED | D9 |
+| Ground | GND |
+
+The button inputs use `INPUT_PULLUP`, where the default input state is HIGH and the pressed state is LOW.
 
 ## Software Architecture
 
@@ -72,6 +91,7 @@ gray-indicator-control-ecu
 │   └── wiring_diagram.md
 │
 ├── media
+│   └── wiring_simulation.png
 │
 └── README.md
 ```
@@ -86,31 +106,10 @@ gray-indicator-control-ecu
 
 1. Open `firmware/arduino_uno/indicator_ecu_uno.ino` in Arduino IDE.
 2. Select Arduino Uno as the board.
-3. Connect the Arduino Uno.
+3. Connect the Arduino Uno or open the simulation setup.
 4. Upload the code.
 5. Open Serial Monitor at 9600 baud rate.
 6. Press left, right, or hazard buttons to observe LED behavior and UART logs.
-
-## Wiring Overview
-
-The project uses three push buttons and two LEDs connected to an Arduino Uno.
-
-### Button Connections
-
-| Button | Arduino Pin | Connection Logic |
-|---|---|---|
-| Left Button | D2 | Button connected between D2 and GND |
-| Right Button | D3 | Button connected between D3 and GND |
-| Hazard Button | D4 | Button connected between D4 and GND |
-
-The button inputs use `INPUT_PULLUP`, so the default state is HIGH and the pressed state is LOW.
-
-### LED Connections
-
-| LED | Arduino Pin | Connection Logic |
-|---|---|---|
-| Left LED | D8 | LED connected through resistor to GND |
-| Right LED | D9 | LED connected through resistor to GND |
 
 ## Validation
 
@@ -130,12 +129,11 @@ docs/test_cases.md
 
 ## Project Outcome
 
-This project demonstrates basic automotive ECU behavior, embedded firmware development, GPIO handling, LED output control, UART logging, timing logic, wiring documentation, and validation-oriented project documentation.
+This project demonstrates basic automotive ECU behavior, embedded firmware development, GPIO handling, LED output control, UART logging, timing logic, wiring simulation documentation, and validation-oriented project documentation.
 
 ## Future Improvements
 
 - Add modular driver files for GPIO, button, UART, and scheduler
 - Add CAN communication simulation
 - Add state-machine diagram
-- Add image-based wiring diagram
 - Add unit-test style validation for indicator logic
